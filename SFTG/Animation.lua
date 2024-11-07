@@ -137,19 +137,19 @@ function moveBodyPart(partName, posOffset, rotOffset)
         originalPos = rootOG.Position
         originalRot = rootOG.Rotation
     elseif partName == "la" then
-        part = isR6 and playerchr.LeftArm or playerchr.LeftUpperArm
+        part = isR6 and playerchr["Left Arm"] or playerchr.LeftUpperArm
         originalPos = lArmOG.Position
         originalRot = lArmOG.Rotation
     elseif partName == "ra" then
-        part = isR6 and playerchr.RightArm or playerchr.RightUpperArm
+        part = isR6 and playerchr.["Right Arm"] or playerchr.RightUpperArm
         originalPos = rArmOG.Position
         originalRot = rArmOG.Rotation
     elseif partName == "ll" then
-        part = isR6 and playerchr.LeftLeg or playerchr.LeftUpperLeg
+        part = isR6 and playerchr["Left Leg"] or playerchr.LeftUpperLeg
         originalPos = lLegOG.Position
         originalRot = lLegOG.Rotation
     elseif partName == "rl" then
-        part = isR6 and playerchr.RightLeg or playerchr.RightUpperLeg
+        part = isR6 and playerchr["Right Leg"] or playerchr.RightUpperLeg
         originalPos = rLegOG.Position
         originalRot = rLegOG.Rotation
     elseif partName == "h" then
