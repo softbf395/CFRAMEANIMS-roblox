@@ -42,9 +42,9 @@ function displayImageInSky(url, fileName)
         local decal = Instance.new("Decal")
         local decalAsset
 if getsynasset then
-    decalAsset = getsynasset(filePath)
+    decalAsset = getsynasset("FITHsun.png")
 elseif getcustomasset then
-    decalAsset = getcustomasset(filePath)
+    decalAsset = getcustomasset("FITHsun.png")
 else
     warn("Neither getsynasset nor getcustomasset is available in this executor.")
 end
@@ -65,9 +65,9 @@ function playMusic(fileName)
     local sound = Instance.new("Sound")
             local soundAsset
 if getsynasset then
-    soundAsset = getsynasset(filePath)
+    soundAsset = getsynasset("music/SFTG/music.mp3")
 elseif getcustomasset then
-    soundAsset = getcustomasset(filePath)
+    soundAsset = getcustomasset("music/SFTG/music.mp3")
 else
     warn("Neither getsynasset nor getcustomasset is available in this executor.")
 end
