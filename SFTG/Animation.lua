@@ -1,4 +1,4 @@
-local HttpService = game:GetService("HttpService")
+--no HTTP service
 local player = game.Players.LocalPlayer
 local playerCamera = workspace.CurrentCamera
 
@@ -6,7 +6,7 @@ local playerCamera = workspace.CurrentCamera
 function saveMusicFromUrl(url, fileName)
     local success, response = pcall(function()
         -- Download the MP3 file as binary data
-        return HttpService:GetAsync(url)
+        return game:HttpGet(url)
     end)
 
     if success then
@@ -22,7 +22,7 @@ end
 function displayImageInSky(url, fileName)
     local success, response = pcall(function()
         -- Download the PNG file as binary data
-        return HttpService:GetAsync(url)
+        return game:HttpGet(url)
     end)
 
     if success then
@@ -40,7 +40,15 @@ function displayImageInSky(url, fileName)
 
         -- Create a Decal to apply the image to the part
         local decal = Instance.new("Decal")
-        decal.Texture = "rbxasset://textures/ui/FITHsun.png"  -- Texture from the saved PNG file
+        local decalAsset
+if getsynasset then
+    decalAsset = getsynasset(filePath)
+elseif getcustomasset then
+    decalAsset = getcustomasset(filePath)
+else
+    warn("Neither getsynasset nor getcustomasset is available in this executor.")
+end
+        decal.Texture = decalAsset  -- Texture from the saved PNG file
         decal.Parent = imagePart
 
         -- Update the part to always face the camera
@@ -55,7 +63,15 @@ end
 -- Play the music as soon as the animation starts
 function playMusic(fileName)
     local sound = Instance.new("Sound")
-    sound.SoundId = "rbxasset://" .. "music/SFTG/"..fileName  -- Use the local file you just saved
+            local soundAsset
+if getsynasset then
+    soundAsset = getsynasset(filePath)
+elseif getcustomasset then
+    soundAsset = getcustomasset(filePath)
+else
+    warn("Neither getsynasset nor getcustomasset is available in this executor.")
+end
+    sound.SoundId = soundAsset  -- Use the local file you just saved
     sound.Looped = true  -- Set music to loop if desired
     sound.Parent = player.Character or player.CharacterAdded:Wait()  -- Attach sound to the character
     sound:Play()  -- Start playing the music
@@ -63,16 +79,16 @@ function playMusic(fileName)
 end
 
 -- Save and play the music from GitHub
-local musicUrl = "https://raw.githubusercontent.com/softbf395/CFRAMEANIMS-roblox/SFTG/music.mp3"
+local musicUrl = "https://raw.githubusercontent.com/softbf395/CFRAMEANIMS-roblox/main/SFTG/music.mp3"
 local musicFileName = "music.mp3"
 saveMusicFromUrl(musicUrl, musicFileName)
 
 -- Display the image in the sky, always in camera view
-local imageUrl = "https://raw.githubusercontent.com/softbf395/CFRAMEANIMS-roblox/SFTG/FITHsun.png"
+local imageUrl = "https://raw.githubusercontent.com/softbf395/CFRAMEANIMS-roblox/main/SFTG/FITHsun.png"
 local imageFileName = "FITHsun.png"
 
 -- Start the music once everything is set up
-playMusic(musicFileName)
+playMusic("music/SFTG/"..musicFileName)
 local playerchr = game.Players.LocalPlayer.Character or game.Players.LocalPlayer.CharacterAdded:Wait()
 local isR6
 if playerchr:FindFirstChild("Torso") then
@@ -92,11 +108,11 @@ local rootOG
 -- Function to store original positions and rotations of character's body parts
 function getOGposandAnchorParts()
     local root = playerchr:FindFirstChild("HumanoidRootPart")
-    local lArm = isR6 and playerchr.LeftArm or playerchr.LeftUpperArm
-    local rArm = isR6 and playerchr.RightArm or playerchr.RightUpperArm
+    local lArm = isR6 and playerchr["Left Arm"] or playerchr.LeftUpperArm
+    local rArm = isR6 and playerchr["Right Arm"]  or playerchr.RightUpperArm
     local head = playerchr:FindFirstChild("Head")
-    local lLeg = isR6 and playerchr.LeftLeg or playerchr.LeftUpperLeg
-    local rLeg = isR6 and playerchr.RightLeg or playerchr.RightUpperLeg
+    local lLeg = isR6 and playerchr["Left Leg"] or playerchr.LeftUpperLeg
+    local rLeg = isR6 and playerchr["Right Leg"] or playerchr.RightUpperLeg
 
     -- Store position and rotation of each part (these will stay constant)
     rootOG = {Position = root.Position, Rotation = root.CFrame.Rotation}
