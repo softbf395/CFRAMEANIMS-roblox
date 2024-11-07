@@ -1,4 +1,4 @@
---no HTTP service
+
 local player = game.Players.LocalPlayer
 local playerCamera = workspace.CurrentCamera
 
@@ -169,11 +169,11 @@ function moveBodyPart(partName, posOffset, rotOffset)
         warn("Failed to find part for: " .. partName)
     end
 end
-moveBodyPart("h", Vector3.new(0, -0.1, 0), Vector3.new(-5, 0, 0))
-moveBodyPart("la", Vector3.new(0, -1, 0), Vector3.new(0, 0, 0))
-moveBodyPart("ra", Vector3.new(0, -1, 0), Vector3.new(0, 0, 0))
+--moveBodyPart("h", Vector3.new(0, -0.1, 0), Vector3.new(-5, 0, 0))
+--moveBodyPart("la", Vector3.new(0, -1, 0), Vector3.new(0, 0, 0))
+--moveBodyPart("ra", Vector3.new(0, -1, 0), Vector3.new(0, 0, 0))
 wait(3)
-moveBodyPart("h", Vector3.new(0, 0.1, 0), Vector3.new(2.5, 0, 0))
-moveBodyPart("la", Vector3.new(-1, 1, 0), Vector3.new(0, 0, 0))
-moveBodyPart("ra", Vector3.new(1, 1, 0), Vector3.new(0, 0, 0))
+--moveBodyPart("h", Vector3.new(0, 0.1, 0), Vector3.new(2.5, 0, 0))
+--moveBodyPart("la", Vector3.new(-1, 1, 0), Vector3.new(0, 0, 0))
+--moveBodyPart("ra", Vector3.new(1, 1, 0), Vector3.new(0, 0, 0))
 displayImageInSky(imageUrl, imageFileName)
