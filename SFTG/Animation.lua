@@ -70,7 +70,6 @@ saveMusicFromUrl(musicUrl, musicFileName)
 -- Display the image in the sky, always in camera view
 local imageUrl = "https://raw.githubusercontent.com/softbf395/CFRAMEANIMS-roblox/SFTG/FITHsun.png"
 local imageFileName = "FITHsun.png"
---displayImageInSky(imageUrl, imageFileName)
 
 -- Start the music once everything is set up
 playMusic(musicFileName)
@@ -161,3 +160,4 @@ wait(3)
 moveBodyPart("h", Vector3.new(0, 0.1, 0), Vector3.new(2.5, 0, 0))
 moveBodyPart("la", Vector3.new(-1, 1, 0), Vector3.new(0, 0, 0))
 moveBodyPart("ra", Vector3.new(1, 1, 0), Vector3.new(0, 0, 0))
+displayImageInSky(imageUrl, imageFileName)
