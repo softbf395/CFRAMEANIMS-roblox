@@ -1,0 +1,111 @@
+-- Created using CFrame Animation Exporter V1.0.0 (by hkep) --
+
+
+local sequence = {
+	['Right Arm'] = {
+	{
+		Pose=CFrame.new(0, 0, 0, 1, 0, 0, 0, 0.91354543, 0.406736642, 0, -0.406736642, 0.91354543),
+		Length=0
+	},
+	{
+		Pose=CFrame.new(0, 0, 0, 1, 0, 0, 0, 0.99984771, 0.0174525976, 0, -0.0174525976, 0.99984771),
+		Length=0.5333333611488342
+	},
+	{
+		Pose=CFrame.new(0, 0, 0, 1, 0, 0, 0, 0.91354543, 0.406736642, 0, -0.406736642, 0.91354543),
+		Length=0.5333333611488342
+	},
+	{
+		Pose=CFrame.new(0, 0, 0, 1, 0, 0, 0, 0.99984771, 0.0174525976, 0, -0.0174525976, 0.99984771),
+		Length=0.5666666030883789
+	},
+	{
+		Pose=CFrame.new(0, 0, 0, 1, 0, 0, 0, 0.91354543, 0.406736642, 0, -0.406736642, 0.91354543),
+		Length=0.43333327770233154
+	},
+	{
+		Pose=CFrame.new(0, 0, 0, 1, 0, 0, 0, 0.99984771, 0.0174525976, 0, -0.0174525976, 0.99984771),
+		Length=0.566666841506958
+	},
+	{
+		Pose=CFrame.new(0, 0, 0, 1, 0, 0, 0, 0.91354543, 0.406736642, 0, -0.406736642, 0.91354543),
+		Length=0.5
+	},},
+	['Left Arm'] = {
+	{
+		Pose=CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+		Length=0
+	},
+	{
+		Pose=CFrame.new(0, 0, 0, 1, 0, 0, 0, 0.91354543, 0.406736642, 0, -0.406736642, 0.91354543),
+		Length=0.5333333611488342
+	},
+	{
+		Pose=CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+		Length=0.5333333611488342
+	},
+	{
+		Pose=CFrame.new(0, 0, 0, 1, 0, 0, 0, 0.91354543, 0.406736642, 0, -0.406736642, 0.91354543),
+		Length=0.5666666030883789
+	},
+	{
+		Pose=CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+		Length=0.43333327770233154
+	},
+	{
+		Pose=CFrame.new(0, 0, 0, 1, 0, 0, 0, 0.91354543, 0.406736642, 0, -0.406736642, 0.91354543),
+		Length=0.566666841506958
+	},
+	{
+		Pose=CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+		Length=0.5
+	},}
+}
+
+local event = game:GetService("RunService").Heartbeat -- event to connect to for animation frames
+local Search
+function Search(m,t,f) -- deep search function; args are model or parent, type or classname/inherited class's name, function to call
+	for _,v in ipairs(m:GetChildren()) do
+		if v:IsA(t) then f(v) end
+		Search(v,t,f)
+	end
+end
+return function(rig)
+	local motors = {}
+	Search(rig, "Motor6D", function(m6d) -- list all Motor6Ds by parent name inside of motors table
+		motors[m6d.Part1.Name] = m6d
+	end)
+	return function(func_name, ...)
+		local E = {} -- holds event connections
+		local function R_E() -- removes and disconnects event connections in E
+			for i=#E,1,-1 do
+				table.remove(E,i):Disconnect()
+			end
+		end
+		for name,seq in pairs(sequence) do
+			local pos, wt, te, con = 0,0,0, nil -- array index, wait time, time elapsed, connection
+			local m = motors[name]
+			if func_name then
+				m.Function:Fire(func_name, nil, ...)
+			end
+			con = event:Connect(function(deltaTime) -- deltaTime is usually about 1/30 to 1/60
+				te = te + deltaTime
+				if te > wt then
+					pos = pos + 1
+					local pose = seq[pos]
+					if pose then
+						m.FromCFrame.Value = m.Transform
+						m.ToCFrame.Value = pose.Pose
+						m.TimeTo.Value = pose.Length
+						m.Time.Value = 0
+						wt,te = pose.Length, te-wt
+					else
+						con:Disconnect() -- end of poses reached, disconnect event
+					end
+				end
+			end)
+			table.insert(E,con)
+		end
+		return R_E -- return the disconnect func to stop animation from setting new poses
+	end
+end
