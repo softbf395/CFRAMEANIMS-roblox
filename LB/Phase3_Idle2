@@ -36,11 +36,8 @@ return function(rig)
 					pos = pos + 1
 					local pose = seq[pos]
 					if pose then
-						m.FromCFrame.Value = m.Transform
-						m.ToCFrame.Value = pose.Pose
-						m.TimeTo.Value = pose.Length
-						m.Time.Value = 0
-						wt,te = pose.Length, te-wt
+						game:GetService("TweenService"):Create(m, TweenInfo.new(pose.Length, Enum.EasingStyle.Linear), {C0=pose.Pose}):Play()
+						wait(pose.Length)
 					else
 						con:Disconnect() -- end of poses reached, disconnect event
 					end
