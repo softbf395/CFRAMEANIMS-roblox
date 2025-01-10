@@ -1,0 +1,194 @@
+-- Created using CFrame Animation Exporter V1.0.0 (by hkep) --
+
+
+local sequence = {
+	['Left Leg'] = {
+	{
+		Pose=CFrame.new(0, 0, 0.163825512, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+		Length=0
+	},
+	{
+		Pose=CFrame.new(0, -0.111468315, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+		Length=0.23333333432674408
+	},
+	{
+		Pose=CFrame.new(0, 0, -0.142788887, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+		Length=0.1666666716337204
+	},
+	{
+		Pose=CFrame.new(0, -0.111468315, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+		Length=0.20000001788139343
+	},
+	{
+		Pose=CFrame.new(0, 0, 0.163825512, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+		Length=0.19999998807907104
+	},
+	{
+		Pose=CFrame.new(0, -0.111468315, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+		Length=0.19999998807907104
+	},
+	{
+		Pose=CFrame.new(0, 0, -0.142788887, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+		Length=0.20000004768371582
+	},
+	{
+		Pose=CFrame.new(0, -0.111468315, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+		Length=0.19999992847442627
+	},
+	{
+		Pose=CFrame.new(0, 0, 0.163825512, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+		Length=0.20000004768371582
+	},},
+	['Right Arm'] = {
+	{
+		Pose=CFrame.new(0, 0.272339344, 0.197866201, 1, 0, 0, 0, 0.809016943, -0.587785304, 0, 0.587785304, 0.809016943),
+		Length=0
+	},
+	{
+		Pose=CFrame.new(0, 0.272339344, 0.197866201, 1, 0, 0, 0, 0.809016943, -0.587785304, 0, 0.587785304, 0.809016943),
+		Length=1.600000023841858
+	},},
+	['Left Arm'] = {
+	{
+		Pose=CFrame.new(0, 0.229114056, 0.121822357, 1, 0, 0, 0, 0.882947564, -0.469471633, 0, 0.469471633, 0.882947564),
+		Length=0
+	},
+	{
+		Pose=CFrame.new(0, 0.229114056, 0.121822357, 1, 0, 0, 0, 0.882947564, -0.469471633, 0, 0.469471633, 0.882947564),
+		Length=0.4000000059604645
+	},
+	{
+		Pose=CFrame.new(0, 0.229114056, 0.121822357, 1, 0, 0, 0, 0.882947564, -0.469471633, 0, 0.469471633, 0.882947564),
+		Length=0.4000000059604645
+	},
+	{
+		Pose=CFrame.new(0, 0.229114056, 0.121822357, 1, 0, 0, 0, 0.882947564, -0.469471633, 0, 0.469471633, 0.882947564),
+		Length=0.40000003576278687
+	},
+	{
+		Pose=CFrame.new(0, 0.229114056, 0.121822357, 1, 0, 0, 0, 0.882947564, -0.469471633, 0, 0.469471633, 0.882947564),
+		Length=0.3999999761581421
+	},},
+	['Torso'] = {
+	{
+		Pose=CFrame.new(-0.209979057, 0, -0.0405445099, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+		Length=0
+	},
+	{
+		Pose=CFrame.new(0, 0, 0.119217396, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+		Length=0.23333333432674408
+	},
+	{
+		Pose=CFrame.new(0.192014217, 0, -0.0405445099, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+		Length=0.1666666716337204
+	},
+	{
+		Pose=CFrame.new(0, 0, 0.119217396, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+		Length=0.20000001788139343
+	},
+	{
+		Pose=CFrame.new(-0.209979057, 0, -0.0405445099, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+		Length=0.19999998807907104
+	},
+	{
+		Pose=CFrame.new(0, 0, 0.119217396, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+		Length=0.19999998807907104
+	},
+	{
+		Pose=CFrame.new(0.192014217, 0, -0.0405445099, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+		Length=0.20000004768371582
+	},
+	{
+		Pose=CFrame.new(0, 0, 0.119217396, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+		Length=0.19999992847442627
+	},
+	{
+		Pose=CFrame.new(-0.209979057, 0, -0.0405445099, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+		Length=0.20000004768371582
+	},},
+	['Right Leg'] = {
+	{
+		Pose=CFrame.new(0, 0, -0.177549839, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+		Length=0
+	},
+	{
+		Pose=CFrame.new(0, -0.131151676, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+		Length=0.23333333432674408
+	},
+	{
+		Pose=CFrame.new(0, 0, 0.163915157, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+		Length=0.1666666716337204
+	},
+	{
+		Pose=CFrame.new(0, -0.131151676, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+		Length=0.20000001788139343
+	},
+	{
+		Pose=CFrame.new(0, 0, -0.177549839, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+		Length=0.19999998807907104
+	},
+	{
+		Pose=CFrame.new(0, -0.131151676, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+		Length=0.19999998807907104
+	},
+	{
+		Pose=CFrame.new(0, 0, 0.163915157, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+		Length=0.20000004768371582
+	},
+	{
+		Pose=CFrame.new(0, -0.131151676, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+		Length=0.19999992847442627
+	},
+	{
+		Pose=CFrame.new(0, 0, -0.177549839, 1, 0, 0, 0, 1, 0, 0, 0, 1),
+		Length=0.20000004768371582
+	},}
+}
+
+local event = game:GetService("RunService").Heartbeat -- event to connect to for animation frames
+local Search
+function Search(m,t,f) -- deep search function; args are model or parent, type or classname/inherited class's name, function to call
+	for _,v in ipairs(m:GetChildren()) do
+		if v:IsA(t) then f(v) end
+		Search(v,t,f)
+	end
+end
+return function(rig)
+	local motors = {}
+	Search(rig, "Motor6D", function(m6d) -- list all Motor6Ds by parent name inside of motors table
+		motors[m6d.Part1.Name] = m6d
+	end)
+	return function(func_name, ...)
+		local E = {} -- holds event connections
+		local function R_E() -- removes and disconnects event connections in E
+			for i=#E,1,-1 do
+				table.remove(E,i):Disconnect()
+			end
+		end
+		for name,seq in pairs(sequence) do
+			local pos, wt, te, con = 0,0,0, nil -- array index, wait time, time elapsed, connection
+			local m = motors[name]
+			if func_name then
+				m.Function:Fire(func_name, nil, ...)
+			end
+			con = event:Connect(function(deltaTime) -- deltaTime is usually about 1/30 to 1/60
+				te = te + deltaTime
+				if te > wt then
+					pos = pos + 1
+					local pose = seq[pos]
+					if pose then
+						m.FromCFrame.Value = m.Transform
+						m.ToCFrame.Value = pose.Pose
+						m.TimeTo.Value = pose.Length
+						m.Time.Value = 0
+						wt,te = pose.Length, te-wt
+					else
+						con:Disconnect() -- end of poses reached, disconnect event
+					end
+				end
+			end)
+			table.insert(E,con)
+		end
+		return R_E -- return the disconnect func to stop animation from setting new poses
+	end
+end
